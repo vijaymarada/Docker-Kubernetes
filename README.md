@@ -79,4 +79,8 @@ Now access the API with http:localhost:30275/weatherforecast
 ![image](https://user-images.githubusercontent.com/49226342/165960550-4122ee50-af5e-45a4-9a15-ba50e77cb251.png)
 
 
+If you want to push the updated code.. then execute commands in below sequence
 
+1. docker image build -t vijaychamp/netinmemoryapi:0.0.1 .  # change version
+2. Command to push the image
+3. kubectl apply  -f .\kubernetesDeployment.yml # change version in image file
