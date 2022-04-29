@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inmemoryapi
+  name: coreapi
   labels:
     app: inmemoryapi-core
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: inmemoryapi
+      service: coreapi
   template:
     metadata:
       labels:
         app: inmemoryapi-core
-        service: inmemoryapi
+        service: coreapi
     spec:
       containers:
       - name: inmemoryapicontainer
@@ -26,14 +26,13 @@ spec:
         ports:
         - containerPort: 80
 --- 
-
 apiVersion: v1
 kind: Service
 metadata:
   name: inmemoryapiservice
-  matchLabels:
+  labels:
     app: inmemoryapi-core
-    service: inmemoryapi
+    service: coreapi
 spec:
   type: NodePort
   ports:
@@ -41,7 +40,7 @@ spec:
       targetPort : 80
       protocol: TCP
   selector:
-    service: inmemoryapi
+    service: coreapi
 
 # kubectl get deployment --show-labels
 # kubectl get deployment -l app=nginx    get specific labels
