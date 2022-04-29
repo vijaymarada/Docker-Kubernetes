@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: inmemoryapicontainer
-        image: vijaychamp/netinmemoryapi:0.0.1
+        image: vijaychamp/netinmemoryapi:0.0.3 # version change for each time code changes 
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -34,7 +34,7 @@ metadata:
     app: inmemoryapi-core
     service: coreapi
 spec:
-  type: NodePort
+  type: NodePort #used only for local, for porduction use load balancer
   ports:
     - port: 8080
       targetPort : 80
