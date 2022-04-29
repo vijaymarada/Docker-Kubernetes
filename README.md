@@ -61,4 +61,26 @@ Once the process is completed it will push the image to docker hub as shown belo
 ### Since I already logged in into docker hub, push wil automatically take care of that. 
 Now you have image of your .net core api in your docket repository. Now you can deploy this image using kubernetes. 
 
+Lets create deployment file. which will be used to deploy our image into the kubernetes cluster. 
 
+Deploy using kubectl command -- the YML file can be found in solution structure. 
+```
+kubectl apply  -f .\kubernetesDeployment.yml
+```
+
+check what all deployed using this yml file 
+```
+ kubectl get all
+```
+![image](https://user-images.githubusercontent.com/49226342/165960380-34e4c0d8-7668-47a0-aabb-7d6cf9af3c8c.png)
+
+Now access the API with http:localhost:30275/weatherforecast
+
+![image](https://user-images.githubusercontent.com/49226342/165960550-4122ee50-af5e-45a4-9a15-ba50e77cb251.png)
+
+
+If you want to push the updated code.. then execute commands in below sequence
+
+1. docker image build -t vijaychamp/netinmemoryapi:0.0.1 .  # change version
+2. Command to push the image
+3. kubectl apply  -f .\kubernetesDeployment.yml # change version in image file
