@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+      <input type="button" id="btnGet" value="Get Current Time" />
+      <div class="container">
+          <label id="HostName" title="Hostname">Hostname: </label><br />
+          <label id="LocalIPAddress" title="LocalIPAddress">LocalIPAddress: </label><br />
+          <label id="LocalPort" title="LocalPort">LocalPort: </label><br />
+          <label id="RemotePort" title="RemotePort">RemotePort:</label><br />
+@*          <input type="file" id="fileread"/>
+          <input type="button" id="btnFile" value="Click" />*@
+
+      </div>
+
+</div>
+ <script type="text/javascript">
+        $(function () {
+            $("#btnGet").click(function () {
+                var data = {};
+                //data.Name = "Mudassar";
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/AjaxMethod",
+                    //data: { "name": $("#txtName").val() },
+                    success: function (response) {
+                        debugger;
+                        var data= response;
+                        document.getElementById("HostName").textContent  = 'Host Name:' + data.hostName;
+                        document.getElementById("LocalIPAddress").innerText= 'Local IPAddress' +data.localIPAddress;
+                        document.getElementById("LocalPort").innerText = 'Local Port' +data.localPort;
+                        document.getElementById("RemoteIpAddress").innerText = 'Remote IpAddress' +data.remoteIpAddress;
+                        
+                        document.getElementById("RemotePort").innerText = 'Remote Port'+ data.remotePort;
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+            $("#btnFile").click(function () {
+                debugger;
+                var data= $("#fileread");
+                });
+        });
+    </script>

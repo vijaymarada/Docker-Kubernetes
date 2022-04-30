@@ -1,0 +1,44 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coreui
+  labels:
+    app: ui-core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: coreui
+  template:
+    metadata:
+      labels:
+        app: ui-core
+        service: coreui
+    spec:
+      containers:
+      - name: coreuicontainer
+        image: vijaychamp/corenet5ui:0.0.1 # version change for each time code changes 
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi" #128 MB
+            cpu: "200m" #200 millicpu (.2cpu or 20% of the CPU)
+        ports:
+        - containerPort: 80
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: coreuiservice
+  labels:
+    app: ui-core
+    service: coreui
+spec:
+  type: NodePort #used only for local, for porduction use load balancer
+  ports:
+    - port: 8080
+      targetPort : 80
+      protocol: TCP
+  selector:
+    service: coreui
+

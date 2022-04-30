@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore5API", "NetCore5API\NetCore5API.csproj", "{F7703AD0-4882-4AEF-BE8C-B479E00EEDEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore5API", "NetCore5API\NetCore5API.csproj", "{F7703AD0-4882-4AEF-BE8C-B479E00EEDEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore5UI", "NetCore5UI\NetCore5UI.csproj", "{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F7703AD0-4882-4AEF-BE8C-B479E00EEDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7703AD0-4882-4AEF-BE8C-B479E00EEDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7703AD0-4882-4AEF-BE8C-B479E00EEDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

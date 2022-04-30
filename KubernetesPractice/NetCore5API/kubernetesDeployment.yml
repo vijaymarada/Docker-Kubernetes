@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: # Define the Deployment Name
   name: coreapi
   labels:
     app: inmemoryapi-core
-spec:
+spec: # Define the Number of Pods
   replicas: 1
-  selector:
+  selector: 
     matchLabels:
       service: coreapi
   template:
