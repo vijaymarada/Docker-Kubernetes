@@ -84,3 +84,29 @@ If you want to push the updated code.. then execute commands in below sequence
 1. docker image build -t vijaychamp/netinmemoryapi:0.0.1 .  # change version
 2. Command to push the image
 3. kubectl apply  -f .\kubernetesDeployment.yml # change version in image file
+
+
+
+
+#### to check the decription on deployments use below commands
+```
+kubectl describe deployment coreui
+kubectl describe deployment coreapi
+```
+
+
+#### The key to sending requests from a frontend to a backend is the backend Service. A Service creates a persistent IP address and DNS name entry so that the backend microservice can always be reached. A Service uses selectors to find the Pods that it routes traffic to.
+
+
+
+
+
+
+#### Deletion
+```
+kubectl delete servcie coreuiservice coreapiservice
+kubectl delete deployment coreapi coreui
+
+```
+
+#### Connecting backend
