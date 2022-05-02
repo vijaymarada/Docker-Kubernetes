@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: coreui
   labels:
-    app: ui-core
+    app: ui-api
 spec:
   replicas: 1
   selector:
@@ -12,12 +12,12 @@ spec:
   template:
     metadata:
       labels:
-        app: ui-core
+        app: ui-api
         service: coreui
     spec:
       containers:
       - name: coreuicontainer
-        image: vijaychamp/corenet5ui:0.0.1 # version change for each time code changes 
+        image: vijaychamp/corenet5ui:0.0.2 # version change for each time code changes 
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -31,7 +31,7 @@ kind: Service
 metadata:
   name: coreuiservice
   labels:
-    app: ui-core
+    app: ui-api
     service: coreui
 spec:
   type: NodePort #used only for local, for porduction use load balancer
@@ -41,4 +41,5 @@ spec:
       protocol: TCP
   selector:
     service: coreui
+    app: ui-api
 

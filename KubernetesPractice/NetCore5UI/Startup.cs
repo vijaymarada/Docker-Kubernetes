@@ -28,14 +28,14 @@ namespace NetCore5UI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            //if (env.IsDevelopment())  // TODO: VIJAY : I had to comment this to know the runtime errors in kubernetes environment.
+            //{
+            app.UseDeveloperExceptionPage();
+           // }
+            //else
+            //{
+            //    app.UseExceptionHandler("/Home/Error");
+            //}
             app.UseStaticFiles();
 
             app.UseRouting();

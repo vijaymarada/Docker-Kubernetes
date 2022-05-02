@@ -3,7 +3,7 @@ kind: Deployment
 metadata: # Define the Deployment Name
   name: coreapi
   labels:
-    app: inmemoryapi-core
+    app: ui-api
 spec: # Define the Number of Pods
   replicas: 1
   selector: 
@@ -12,7 +12,7 @@ spec: # Define the Number of Pods
   template:
     metadata:
       labels:
-        app: inmemoryapi-core
+        app: ui-api
         service: coreapi
     spec:
       containers:
@@ -31,7 +31,7 @@ kind: Service
 metadata:
   name: inmemoryapiservice
   labels:
-    app: inmemoryapi-core
+    app: ui-api
     service: coreapi
 spec:
   type: NodePort #used only for local, for porduction use load balancer
@@ -41,7 +41,7 @@ spec:
       protocol: TCP
   selector:
     service: coreapi
-
+    app: ui-api
 # kubectl get deployment --show-labels
 # kubectl get deployment -l app=nginx    get specific labels
 # kubectl scale deployment <<deployment name>> --replicas=5  # sclae deployment pods to 5
