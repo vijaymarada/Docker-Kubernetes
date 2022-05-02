@@ -52,7 +52,8 @@ namespace NetCore5UI.Controllers
                 LocalIPAddress=data.LocalIPAddress,
                 LocalPort=data.LocalPort,
                 RemoteIpAddress=data.RemoteIpAddress,
-                RemotePort=data.RemotePort
+                RemotePort=data.RemotePort,
+                EnvVariables = data.EnvVariables,
             };
 
             return Json(model);
@@ -70,7 +71,27 @@ namespace NetCore5UI.Controllers
 
         public string RemotePort { get; set; }
 
-        //public string RequestHeaders { get; set; }
+        public EnvironmentVariables EnvVariables { get; set; }
+
+    }
+
+    public class EnvironmentVariables
+    {
+        public string DOTNET_RUNNING_IN_CONTAINER { get; set; }
+        public string KUBERNETES_PORT_443_TCP_PORT { get; set; }
+        public string KUBERNETES_PORT { get; set; }
+        public string ASPNET_VERSION { get; set; }
+        public string INMEMORYAPISERVICE_SERVICE_HOST { get; set; }
+        public string INMEMORYAPISERVICE_PORT { get; set; }
+        public string PATH { get; set; }
+        public string COREUISERVICE_PORT_8080_TCP_ADDR { get; set; }
+        public string COREUISERVICE_SERVICE_HOST { get; set; }
+        public string COREUISERVICE_PORT { get; set; }
+        public string COREUISERVICE_SERVICE_PORT { get; set; }
+        public string INMEMORYAPISERVICE_PORT_8080_TCP { get; set; }
+        public string COREUISERVICE_PORT_8080_TCP { get; set; }
+        public string INMEMORYAPISERVICE_SERVICE_PORT { get; set; }
+        public string HOSTNAME { get; set; }
 
     }
 }

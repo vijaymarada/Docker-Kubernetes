@@ -4,51 +4,71 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-      <input type="button" id="btnGet" value="Get Current Time" />
-      <div class="container">
-          <label id="HostName" title="Hostname">Hostname: </label><br />
-          <label id="LocalIPAddress" title="LocalIPAddress">LocalIPAddress: </label><br />
-          <label id="LocalPort" title="LocalPort">LocalPort: </label><br />
-          <label id="RemotePort" title="RemotePort">RemotePort:</label><br />
-@*          <input type="file" id="fileread"/>
-          <input type="button" id="btnFile" value="Click" />*@
-
-      </div>
+    <input type="button" id="btnGet" value="Get Kubernetes Host Details" /> <br /><br />
+    <div class="container" id="tblCont">
+    </div>
 
 </div>
- <script type="text/javascript">
-        $(function () {
-            $("#btnGet").click(function () {
-                var data = {};
-                //data.Name = "Mudassar";
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/AjaxMethod",
-                    //data: { "name": $("#txtName").val() },
-                    success: function (response) {
-                        debugger;
-                        var data= response;
-                        document.getElementById("HostName").textContent  = 'Host Name:' + data.hostName;
-                        document.getElementById("LocalIPAddress").innerText= 'Local IPAddress' +data.localIPAddress;
-                        document.getElementById("LocalPort").innerText = 'Local Port' +data.localPort;
-                        document.getElementById("RemoteIpAddress").innerText = 'Remote IpAddress' +data.remoteIpAddress;
-                        
-                        document.getElementById("RemotePort").innerText = 'Remote Port'+ data.remotePort;
+<script type="text/javascript">
+    $(function () {
+        $("#btnGet").click(function () {
+            var data = {};
+            //data.Name = "Mudassar";
+            $.ajax({
+                type: "POST",
+                url: "/Home/AjaxMethod",
+                //data: { "name": $("#txtName").val() },
+                success: function (response) {
+                    debugger;
+                    var data= response;
 
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
+                   let text = "<table border='1'>"
+                    text +="<tr> <td>DOTNET_RUNNING_IN_CONTAINER</td> <td>" + data.envVariables.dotneT_RUNNING_IN_CONTAINER + "</td> </tr> ";
+                   text += "<tr> <td>Host Name</td> <td>" + data.hostName + "</td> </tr>"
+                   text += "<tr> <td>ASPNET_VERSION</td> <td>" + data.envVariables.aspneT_VERSION + "</td> </tr>"
+
+                    text +="<tr> <td>Local IPAddress</td> <td>" + data.localIPAddress + "</td> </tr>   "
+                    text +="<tr> <td>Local Port</td> <td>" + data.localPort + "</td> </tr>         "
+                    text +="<tr> <td>Remote IPAddress</td><td>" + data.remoteIpAddress + "</td> </tr>    "
+                    text +="<tr> <td>Remote Port</td> <td>" + data.remotePort + "</td> </tr>         "
+                    text +="<tr> <td>COREUISERVICE_PORT</td> <td>" + data.envVariables.coreuiservicE_PORT + "</td> </tr>       "
+                    text +="<tr> <td>COREUISERVICE_PORT_8080_TCP</td> <td>" + data.envVariables.coreuiservicE_PORT_8080_TCP + "</td> </tr>      "
+                    text +="<tr> <td>COREUISERVICE_PORT_8080_TCP_ADDR</td> <td>" + data.envVariables.coreuiservicE_PORT_8080_TCP_ADDR + "</td> </tr> ";
+                     text +="<tr> <td>INMEMORYAPISERVICE_SERVICE_PORT</td> <td>" + data.envVariables.coreuiservicE_SERVICE_PORT + "</td> </tr> ";
+                      text +="<tr> <td>COREUISERVICE_SERVICE_PORT</td> <td>" + data.envVariables.coreuiservicE_SERVICE_PORT + "</td> </tr> ";
+                        text +="<tr> <td>HostName</td> <td>" + data.envVariables.hostname + "</td> </tr> ";
+                        text +="<tr> <td>INMEMORYAPISERVICE_SERVICE_HOST</td> <td>" + data.envVariables.inmemoryapiservicE_PORT + "</td> </tr> ";
+                        text +="<tr> <td>INMEMORYAPISERVICE_PORT_8080_TCP</td> <td>" + data.envVariables.inmemoryapiservicE_PORT_8080_TCP + "</td> </tr> ";
+                        text +="<tr> <td>INMEMORYAPISERVICE_PORT</td> <td>" + data.envVariables.inmemoryapiservicE_SERVICE_PORT + "</td> </tr> ";
+                        text +="<tr> <td>KUBERNETES_PORT</td> <td>" + data.envVariables.kuberneteS_PORT + "</td> </tr> ";
+                        text +="<tr> <td>KUBERNETES_PORT_443_TCP_PORT</td> <td>" + data.envVariables.kuberneteS_PORT_443_TCP_PORT + "</td> </tr> ";
+                        text +="<tr> <td>PATH</td> <td>" + data.envVariables.path + "</td> </tr> ";
+
+
+
+                     text += "</table>"
+                     document.getElementById("tblCont").innerHTML = text;
+                    //document.getElementById("HostName").textContent  = 'Host Name: ' + data.hostName;
+                    //document.getElementById("LocalIPAddress").innerText= 'Local IPAddress: ' +data.localIPAddress;
+                    //document.getElementById("LocalPort").innerText = 'Local Port:' +data.localPort;
+                    //document.getElementById("RemoteIpAddress").innerText = 'Remote IpAddress: ' +data.remoteIpAddress;
+
+                    //document.getElementById("RemotePort").innerText = 'Remote Port: '+ data.remotePort;
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
             });
-            $("#btnFile").click(function () {
-                debugger;
-                var data= $("#fileread");
-                });
         });
-    </script>
+        $("#btnFile").click(function () {
+            debugger;
+            var data= $("#fileread");
+            });
+    });
+</script>
