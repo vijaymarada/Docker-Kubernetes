@@ -109,4 +109,4 @@ kubectl delete deployment coreapi coreui
 
 ```
 
-#### Connecting backend
+#### [Connecting frontend with backend](https://github.com/vijaymarada/Docker-Kubernetes/blob/main/KubernetesPractice/NetCore5UI/README.md)
