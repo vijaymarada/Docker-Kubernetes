@@ -10,7 +10,7 @@ kind: CronJob
 metadata:
   name: sendmail
 spec:
-  suspend: true  # flag used to suspend the job (true/false)
+  suspend: false  # flag used to run/suspend the job (false/true)
   schedule: "* * * * *"  //Runs every 1 min
   jobTemplate:
     spec:
