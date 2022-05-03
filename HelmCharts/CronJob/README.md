@@ -16,6 +16,9 @@ So, for now I dont want to try with all those options, just I will focus on depl
 ```
 helm lint <ChartName>
 ```
+![image](https://user-images.githubusercontent.com/49226342/166459325-6de9b7d7-d1c6-47e6-ab59-5b945b6a4f85.png)
+
+
 Install helm charts
 
 ```
