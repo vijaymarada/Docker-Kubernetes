@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore5API", "NetCore5API\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore5UI", "NetCore5UI\NetCore5UI.csproj", "{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronJobSendMails", "CronJobSendMails\CronJobSendMails.csproj", "{F11ADBE9-1045-47DE-BDE2-CAF94992AD13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{985FF4DB-5EA3-421F-BDCA-EB880FCDAA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11ADBE9-1045-47DE-BDE2-CAF94992AD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11ADBE9-1045-47DE-BDE2-CAF94992AD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11ADBE9-1045-47DE-BDE2-CAF94992AD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11ADBE9-1045-47DE-BDE2-CAF94992AD13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

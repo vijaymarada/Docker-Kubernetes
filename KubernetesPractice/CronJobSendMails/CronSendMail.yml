@@ -1,0 +1,20 @@
+﻿apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sendmail
+spec:
+  suspend: true  # flag used to suspend the job (true/false)
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sendmail
+            image: vijaychamp/cronsendmail:0.0.3
+            imagePullPolicy: IfNotPresent
+            #command:
+            #- /bin/sh
+            #- -c
+            #- date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure

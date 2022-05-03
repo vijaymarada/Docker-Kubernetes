@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CronJobSendMails": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
