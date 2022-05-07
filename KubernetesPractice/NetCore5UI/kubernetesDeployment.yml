@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: coreuicontainer
-        image: vijaychamp/corenet5ui:0.0.2 # version change for each time code changes 
+        image: vijaychamp/corenet5ui:0.0.1 # version change for each time code changes 
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -39,6 +39,7 @@ spec:
     - port: 8080
       targetPort : 80
       protocol: TCP
+      nodePort: 30002
   selector:
     service: coreui
     app: ui-api

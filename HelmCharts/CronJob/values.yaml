@@ -13,4 +13,4 @@ image:
 restartPolicy: OnFailure
 env: dev
 schedule: '"* * * * *"'
-suspend: true
+suspend: false
