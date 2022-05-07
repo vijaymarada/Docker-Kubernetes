@@ -16,31 +16,28 @@ So, for now I dont want to try with all those options, just I will focus on depl
 ```
 helm lint <ChartName>
 ```
+![image](https://user-images.githubusercontent.com/49226342/166459325-6de9b7d7-d1c6-47e6-ab59-5b945b6a4f85.png)
+
+
 Install helm charts
 
 ```
-helm install cronjob/ --generate-name
-
-folder structure: 
-
-output:
-NAME: cronjob-1651582645
-LAST DEPLOYED: Tue May  3 18:27:25 2022
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
+helm install cronjob/ --generate-name 
 ```
+output:
+![image](https://user-images.githubusercontent.com/49226342/166458811-03e7c70b-0ce0-49d6-8747-a95eb5c04296.png)
 
 
 List helm charts
 ```
 helm ls
 ```
+![image](https://user-images.githubusercontent.com/49226342/166458679-dc9bc708-0e3c-46c1-9453-814dbb1d8710.png)
+
 Uninstall a release
 ```
 helm uninstall <releasename> 
 
-eg: helm uninstall cronjobhelm-1651568412
+eg: helm uninstall cronjob-1651582960
 ```
 
