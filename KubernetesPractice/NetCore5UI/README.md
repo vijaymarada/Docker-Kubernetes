@@ -20,9 +20,10 @@ Below are the updates I have done to achieve this
     ```
     And its working. Though, I am not sure this is the right way ot not, still exploring and will update accrodingly. 
     
-    Yes, Here is the update: Instead of mentioning **host.docker.internal** We can **describe** the **api service** (**kubectl decribr netcoreapi**) and get the end         point IP
+    Yes, Here is the update: Instead of mentioning **host.docker.internal** We can **describe** the **api service** (**kubectl decribe netcoreapi**) and get the end         point IP
     ```
     "Endpoints": "10.1.0.159"
+    Then you can update as below
     "API": "http://10.1.0.159:80/Home        
     ```
     
@@ -67,4 +68,9 @@ Below are the updates I have done to achieve this
     Now you can check inside the pod where you can see the deployed config map file 
     
     ![image](https://user-images.githubusercontent.com/49226342/167467011-041d085e-f94f-412b-8e1f-d82f841f3397.png)
+    
+    #### Now, the next question is how we read this config map from .netcore code.
+    
+    You can observe changes in UI project, Startup.cs, HomeController.cs, Will update content later
+    
 
